@@ -71,7 +71,12 @@ EOF;
     "animalsGenerics": {
         "animal3": {"name": "Bug"},
         "3": {"name": "Dog"}
-    }
+    },
+    "animalList": [{
+        "animalsNestedList": {
+            "animal4": [{"name": "Bug"}]
+        }
+    }]
 }
 EOF;
         $serializer = new Serializer([
@@ -158,6 +163,11 @@ class ZooWithKeyTypes
     public $animalsUnion = [];
     /** @var \Traversable<Animal> */
     public $animalsGenerics = [];
+    /** @var list<ZooWithKeyTypes> */
+    public $animalList = [];
+
+    /** @var array<string, list<mixed>> */
+    public $animalsNestedList = [];
 }
 
 class Animal
